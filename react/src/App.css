@@ -1,584 +1,144 @@
-
-@import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@200;400;600;800&family=Space+Grotesk:wght@300;500;700&display=swap');
-
+#root {
 
 
-:root {
 
-  --primary-glow: #00f2fe;
+  max-width: 1280px;
 
-  --secondary-glow: #7000ff;
 
-  --card-bg: rgba(8, 8, 8, 0.75);
 
-  --glass-border: rgba(255, 255, 255, 0.12);
+  margin: 0 auto;
 
-  --text-primary: #ffffff;
 
-  --text-secondary: rgba(255, 255, 255, 0.5);
+
+  padding: 2rem;
+
+
+
+  text-align: center;
+
+
+}
+
+
+.logo {
+
+
+
+  height: 6em;
+
+
+
+  padding: 1.5em;
+
+
+
+  will-change: filter;
+
+
+
+  transition: filter 300ms;
+
+
+
+}
+
+
+.logo:hover {
+
+
+
+  filter: drop-shadow(0 0 2em #646cffaa);
+
+
+
+}
+
+
+.logo.react:hover {
+
+
+
+  filter: drop-shadow(0 0 2em #61dafbaa);
+
+
+
+}
+
+@keyframes logo-spin {
+
+
+
+  from {
+
+
+
+    transform: rotate(0deg);
+
+
+
+  }
+
+
+
+  to {
+
+
+
+    transform: rotate(360deg);
+
+
+
+  }
+
+
 
 }
 
 
 
-/* CONTAINER COM PROFUNDIDADE */
 
-.container {
 
-  min-height: 100vh;
 
-  display: flex;
 
-  justify-content: center;
+@media (prefers-reduced-motion: no-preference) {
 
-  align-items: center;
 
-  perspective: 1200px;
 
-  background: radial-gradient(circle at center, #0a0a0a 0%, #000 100%);
+  a:nth-of-type(2) .logo {
 
+
+
+    animation: logo-spin infinite 20s linear;
+
+
+
+  }
+
+
+
+}
+
+body {
+  background-color: black;
 }
 
 
 
-/* CARD COM EFEITO "LIQUID GLASS" */
+
+
+
 
 .card {
 
-  width: 100%;
 
-  max-width: 410px;
 
-  padding: 35px;
-
-  background: var(--card-bg);
-
-  backdrop-filter: blur(40px) saturate(180%);
-
-  -webkit-backdrop-filter: blur(40px) saturate(180%);
-
-  border-radius: 35px;
-
-  border: 1px solid var(--glass-border);
-
-  box-shadow:
-
-    0 40px 100px rgba(0, 0, 0, 0.8),
-
-    inset 0 0 20px rgba(255, 255, 255, 0.02);
-
-  position: relative;
-
-  overflow: hidden;
-
-  animation: cardAppear 1.4s cubic-bezier(0.16, 1, 0.3, 1);
+  padding: 2em;
 
 }
+.read-the-docs {
 
 
 
-/* BRILHO DINÂMICO NA BORDA */
+  color: #888;
 
-.card::before {
-
-  content: "";
-
-  position: absolute;
-
-  top: 0;
-  left: -150%;
-
-  width: 100%;
-  height: 100%;
-
-  background: linear-gradient(90deg, transparent, rgba(0, 242, 254, 0.1), transparent);
-
-  transition: 0.8s;
-
-}
-
-.card:hover::before {
-  left: 150%;
-}
-
-
-
-@keyframes cardAppear {
-
-  from {
-    opacity: 0;
-    transform: translateY(40px) rotateX(-5deg);
-  }
-
-  to {
-    opacity: 1;
-    transform: translateY(0) rotateX(0);
-  }
-
-}
-
-
-
-/* HEADER MINIMALISTA */
-
-.header {
-
-  text-align: center;
-
-  margin-bottom: 30px;
-
-}
-
-
-
-.header img {
-
-  width: 55px;
-
-  border-radius: 14px;
-
-  filter: drop-shadow(0 0 15px rgba(0, 242, 254, 0.4));
-
-  margin-bottom: 12px;
-
-}
-
-
-
-.header h1 {
-
-  font-family: 'Space Grotesk', sans-serif;
-
-  font-size: 20px;
-
-  font-weight: 700;
-
-  letter-spacing: 5px;
-
-  text-transform: uppercase;
-
-  background: linear-gradient(to right, #fff, #777);
-
-  -webkit-background-clip: text;
-
-  -webkit-text-fill-color: transparent;
-
-}
-
-
-
-/* GALERIA SEM BORDAS (EDGE-TO-EDGE) */
-
-.carousel {
-
-  width: 100%;
-
-  height: 230px;
-
-  border-radius: 24px;
-
-  overflow: hidden;
-
-  margin-bottom: 25px;
-
-  border: 1px solid var(--glass-border);
-
-  position: relative;
-
-}
-
-
-
-.carousel img {
-
-  width: 100%;
-
-  height: 100%;
-
-  object-fit: cover;
-
-  transition: transform 1.2s cubic-bezier(0.16, 1, 0.3, 1);
-
-}
-
-
-
-.carousel:hover img {
-  transform: scale(1.08);
-}
-
-
-
-/* WIDGET DE INFORMAÇÕES */
-
-.info {
-
-  background: rgba(255, 255, 255, 0.03);
-
-  padding: 16px 20px;
-
-  border-radius: 20px;
-
-  display: flex;
-
-  justify-content: space-between;
-
-  margin-bottom: 25px;
-
-  border: 1px solid rgba(255, 255, 255, 0.05);
-
-}
-
-
-
-.info span {
-
-  font-size: 11px;
-
-  font-weight: 600;
-
-  color: var(--primary-glow);
-
-  letter-spacing: 1px;
-
-}
-
-
-
-/* INPUTS "GHOST" */
-
-input {
-
-  width: 100%;
-
-  background: rgba(255, 255, 255, 0.02);
-
-  border: 1px solid var(--glass-border);
-
-  border-radius: 16px;
-
-  padding: 15px 18px;
-
-  color: #fff;
-
-  font-family: 'Plus Jakarta Sans', sans-serif;
-
-  font-size: 14px;
-
-  margin-bottom: 15px;
-
-  transition: all 0.4s ease;
-
-}
-
-
-
-input:focus {
-
-  background: rgba(0, 242, 254, 0.05);
-
-  border-color: var(--primary-glow);
-
-  box-shadow: 0 0 20px rgba(0, 242, 254, 0.1);
-
-}
-
-
-
-/* BOTÃO PRINCIPAL - IMPACTO VISUAL */
-
-.btn-primary {
-
-  width: 100%;
-
-  background: #fff;
-
-  color: #000;
-
-  border: none;
-
-  padding: 18px;
-
-  border-radius: 18px;
-
-  font-weight: 800;
-
-  font-size: 13px;
-
-  letter-spacing: 2px;
-
-  text-transform: uppercase;
-
-  cursor: pointer;
-
-  transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
-
-}
-
-
-
-.btn-primary:hover {
-
-  transform: translateY(-4px);
-
-  box-shadow: 0 20px 40px rgba(255, 255, 255, 0.2);
-
-}
-
-
-
-/* AGENTE IA - VISUAL HUD */
-
-.chat-box {
-
-  background: rgba(0, 0, 0, 0.6);
-
-  border-radius: 24px;
-
-  padding: 20px;
-
-  margin-top: 25px;
-
-  border: 1px solid var(--secondary-glow);
-
-  box-shadow: 0 0 30px rgba(112, 0, 255, 0.1);
-
-}
-
-
-
-.msg-ai {
-
-  color: var(--primary-glow);
-
-  font-family: 'Space Grotesk', monospace;
-
-  font-size: 12px;
-
-  border-left: 2px solid var(--primary-glow);
-
-  padding-left: 12px;
-
-  margin-bottom: 15px;
-
-}
-
-
-
-.msg-user {
-
-  color: #fff;
-
-  text-align: right;
-
-  font-size: 12px;
-
-  opacity: 0.7;
-
-  margin-bottom: 10px;
-
-}
-
-
-
-/* RODAPÉ ELEGANT */
-
-footer {
-
-  text-align: center;
-
-  margin-top: 40px;
-
-  font-size: 9px;
-
-  color: var(--text-secondary);
-
-  letter-spacing: 3px;
-
-  font-weight: 300;
-
-}
-
-/* ============================================================
-   ESTILO DO GATILHO DA IA (ÍCONE FLUTUANTE)
-   ============================================================ */
-
-.ai-trigger {
-  position: absolute;
-  top: 25px;
-  right: 25px;
-  width: 45px;
-  height: 45px;
-  border-radius: 12px;
-  /* Mantém o formato sutilmente arredondado do card */
-  background: rgba(255, 255, 255, 0.03);
-  border: 1px solid rgba(255, 255, 255, 0.08);
-  color: rgba(255, 255, 255, 0.5);
-  /* Cor padrão mais apagada */
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  cursor: pointer;
-
-  /* Transição suave para todas as propriedades */
-  transition: all 0.5s cubic-bezier(0.23, 1, 0.32, 1);
-  z-index: 10;
-  overflow: hidden;
-}
-
-/* ============================================================
-   EFEITO HOVER - O "GLOW ATIVO"
-   ============================================================ 
-*/
-
-.ai-trigger:hover {
-  background: rgba(0, 242, 254, 0.08);
-  /* Fundo levemente cyan */
-  border-color: rgba(0, 242, 254, 0.4);
-  /* Borda cyan mais visível */
-  color: var(--primary-glow);
-  /* Ícone acende em cyan puro */
-
-  /* Efeito de Profundidade e Brilho (Glow) */
-  transform: translateY(-3px) rotate(15deg) scale(1.05);
-  box-shadow:
-    0 10px 20px rgba(0, 0, 0, 0.5),
-    /* Sombra projetada */
-    0 0 15px rgba(0, 242, 254, 0.2);
-  /* Brilho neon suave */
-}
-
-/* Pequeno ponto de luz pulsante no hover (opcional) */
-.ai-trigger:hover::after {
-  content: "";
-  position: absolute;
-  width: 4px;
-  height: 4px;
-  background: var(--primary-glow);
-  border-radius: 50%;
-  top: 8px;
-  right: 8px;
-  box-shadow: 0 0 10px var(--primary-glow);
-  animation: pulse-glow 1.5s infinite;
-}
-
-/* Animação do ponto de luz */
-@keyframes pulse-glow {
-  0% {
-    opacity: 0.5;
-    transform: scale(1);
-  }
-
-  50% {
-    opacity: 1;
-    transform: scale(1.3);
-  }
-
-  100% {
-    opacity: 0.5;
-    transform: scale(1);
-  }
-}
-
-/* ============================================================
-   ESTADO ATIVO (QUANDO O CHAT ESTÁ ABERTO)
-   ============================================================ 
-*/
-
-.ai-trigger.active {
-  background: var(--primary-glow);
-  color: #000;
-  /* Ícone preto para contraste */
-  border-color: var(--primary-glow);
-  transform: scale(1.1);
-  box-shadow: 0 0 30px rgba(0, 242, 254, 0.5);
-}
-
-.ai-trigger.active:hover {
-  transform: scale(1.15) rotate(-15deg);
-  background: #fff;
-  /* Muda para branco no hover quando ativo */
-}
-
-/* CONTAINER PARA OS BOTÕES DE CONTROLE */
-.btn-group {
-  display: flex;
-  gap: 12px;
-  margin-top: 20px;
-  align-items: center;
-}
-
-/* BOTÃO DE AGENDA MODERNO */
-.btn-utility {
-  flex: 1;
-  height: 45px;
-  background: rgba(255, 255, 255, 0.02);
-  border: 1px solid rgba(255, 255, 255, 0.08);
-  border-radius: 12px;
-  color: rgba(255, 255, 255, 0.6);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 10px;
-  font-family: 'Space Grotesk', sans-serif;
-  font-size: 11px;
-  font-weight: 700;
-  letter-spacing: 2px;
-  cursor: pointer;
-  transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
-}
-
-/* HOVER DO BOTÃO DE AGENDA */
-.btn-utility:hover {
-  background: rgba(255, 255, 255, 0.05);
-  border-color: rgba(255, 255, 255, 0.3);
-  color: #fff;
-  transform: translateY(-2px);
-  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
-}
-
-/* QUANDO A AGENDA ESTÁ ABERTA (ESTADO ATIVO) */
-.btn-utility.active {
-  background: rgba(255, 255, 255, 0.1);
-  border-color: #fff;
-  color: #fff;
-  box-shadow: 0 0 15px rgba(255, 255, 255, 0.1);
-}
-
-/* REAJUSTE DO AI-TRIGGER PARA ALINHAR NO GRUPO (OPCIONAL) */
-/* Se você quiser que ele fique ao lado do botão de agenda em vez de flutuando no topo: */
-.ai-trigger {
-  position: relative;
-  /* Mude de absolute para relative se quiser no btn-group */
-  top: auto;
-  right: auto;
-  flex: 0 0 45px;
-  /* Mantém o formato quadrado */
-}
-
-.btn-video {
-  width: 100%;
-  margin-top: 10px;
-  height: 40px;
-  background: linear-gradient(90deg, rgba(112, 0, 255, 0.1), rgba(0, 242, 254, 0.1));
-  border: 1px solid rgba(112, 0, 255, 0.2);
-  border-radius: 12px;
-  color: #fff;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 10px;
-  font-family: 'Space Grotesk', sans-serif;
-  font-size: 10px;
-  font-weight: 700;
-  letter-spacing: 2px;
-  cursor: pointer;
-  transition: all 0.4s ease;
-  text-transform: uppercase;
-}
-
-.btn-video:hover {
-  border-color: var(--primary-glow);
-  box-shadow: 0 0 15px rgba(112, 0, 255, 0.3);
-  transform: scale(1.01);
 }
